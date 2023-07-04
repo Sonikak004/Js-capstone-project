@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+
+header{
+  border: 1px solid black;
+  display: flex;
+  flex-direction:row;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+}
 h1 {
   color: black;
 }
