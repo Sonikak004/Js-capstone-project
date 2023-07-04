@@ -16,9 +16,12 @@ footer {
   background-color:#2C2C2C;
 }
 
-.footer-p,
-.ftxt {
+.footer-p {
   color: rgb(255, 255, 255);
+}
+
+.ftxt {
+  color: #feca1b;
   text-decoration: none;
 }
 
