@@ -12,6 +12,11 @@ header{
   justify-content: space-between;
   padding: 1rem 2rem;
 }
+nav{
+  display: flex;
+  flex-direction:row;
+  gap: 1rem;
+}
 h1 {
   color: black;
 }
