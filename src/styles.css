@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+a{
+  text-decoration:none;
+  color: inherit;
+}
 
 header{
   border: 1px solid black;
@@ -12,11 +16,18 @@ header{
   justify-content: space-between;
   padding: 1rem 2rem;
 }
+
 nav{
   display: flex;
   flex-direction:row;
   gap: 1rem;
 }
+
+.nav-link:hover{
+  cursor: pointer;
+  color: blueviolet;
+}
+
 h1 {
   color: black;
 }
