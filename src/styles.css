@@ -1,29 +1,29 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-a{
-  text-decoration:none;
+a {
+  text-decoration: none;
   color: inherit;
 }
 
-header{
+header {
   border: 1px solid black;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-between;
   padding: 1rem 2rem;
 }
 
-nav{
+nav {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   gap: 1rem;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   cursor: pointer;
   color: blueviolet;
 }
