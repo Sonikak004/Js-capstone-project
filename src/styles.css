@@ -22,7 +22,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   padding: 1rem 2rem;
-  color:aliceblue;
+  color: aliceblue;
   background: #2c2c2c;
 }
 
@@ -34,7 +34,7 @@ nav {
 
 .nav-link:hover {
   cursor: pointer;
-  color: rgb(2, 141, 240);
+  color: #feca1b;
 }
 
 /* footer  */
