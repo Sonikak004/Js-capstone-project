@@ -37,6 +37,61 @@ nav {
   color: #feca1b;
 }
 
+/* main */
+
+.poke-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.item {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.item img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+button {
+  border: none;
+  color: #2c2c2c;
+}
+
+.button {
+  border: 1px solid #2c2c2c;
+  margin-left: 3px;
+  margin-right: 3px;
+  height: 25px;
+  width: 90px;
+}
+
+.fas {
+  font-size: 18px;
+  height: 22px;
+  color: #feca1b;
+  top: 2px;
+  position: relative;
+  width: 25px;
+}
+
+.fas:hover {
+  color: rgb(2, 141, 240);
+}
+
+#poke-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 500px;
+  justify-content: center;
+}
+
 /* footer  */
 
 footer {
