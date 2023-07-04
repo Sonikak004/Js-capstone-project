@@ -52,3 +52,19 @@ footer {
   color: rgb(255, 255, 255);
 }
 
+.ftxt {
+  color: #feca1b;
+  text-decoration: none;
+}
+
+.ftxt:hover {
+  color: rgb(2, 141, 240);
+  text-decoration: none;
+}
+
+.footer-d {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
