@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -29,3 +36,19 @@ nav {
   cursor: pointer;
   color: rgb(2, 141, 240);
 }
+
+/* footer  */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 70px;
+  right: 0;
+  background-color: #2c2c2c;
+}
+
+.footer-p {
+  color: rgb(255, 255, 255);
+}
+
