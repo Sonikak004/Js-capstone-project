@@ -14,4 +14,10 @@ btn.addEventListener('click', async (e) => {
   console.log(height)
   const abilities = []
   const moves = []
+  for (let i = 0; i < 5; i++){
+    if (data.abilities[i] !== undefined) {
+      abilities.push(data.abilities[i].ability.name)
+    }
+  }
+  console.log(abilities)
 })
