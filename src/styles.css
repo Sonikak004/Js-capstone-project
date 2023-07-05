@@ -70,6 +70,10 @@ footer {
 }
 
 /* Popup-Styling */
+.hidden {
+  display: none;
+}
+
 #container{
   position: absolute;
   width: 100%;
