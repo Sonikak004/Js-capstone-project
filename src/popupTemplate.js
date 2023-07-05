@@ -1,8 +1,11 @@
 const template = (data, abilities, moves) => `
 <div id="popup">
-  <a href="#"><i class="fa-regular fa-circle-xmark fa-2xl" id="closePop"></i></a>
+  <a href="#" id="closePop">
+        <i class="fas fa-times fa-lg"></i></a>
     <figure id="popPic">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" alt="${data.name}">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
+          data.id
+        }.svg" alt="${data.name}">
         <figcaption><h1>${data.name}</h1></figcaption>
     </figure>
 
@@ -11,16 +14,12 @@ const template = (data, abilities, moves) => `
         <div class="stats">Weight: ${data.weight}</div>
         <div class="stats">Abilities:
             <ul>
-            ${abilities
-              .map((ability) =>`<li>${ability}</li>`)
-              .join('')}
+            ${abilities.map((ability) => `<li>${ability}</li>`).join('')}
             </ul>
         </div>
         <div class="stats">Moves:
             <ul>
-            ${moves
-              .map((move) =>`<li>${move}</li>`)
-              .join('')}
+            ${moves.map((move) => `<li>${move}</li>`).join('')}
             </ul>
         </div>  
     </div>
