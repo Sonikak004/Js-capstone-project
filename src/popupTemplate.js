@@ -23,25 +23,6 @@ const template = (data, abilities, moves) => `
             </ul>
         </div>  
     </div>
-
-    <div class="comment-section">
-        <h4>Comments</h4>
-        <div id="comments">
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-            <p>Lorem ipsum dolor sit amet.</p>
-        </div>
-    </div>
-
-    <form>
-        <h4>Add a comment</h4>
-        <input type="text" class="name" name=name placeholder="Your name">
-        <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Your insights"></textarea>
-        <button type="submit">Comment</button>
-    </form>
-</div>
 `;
 
 export default template;
