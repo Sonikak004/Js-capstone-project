@@ -31,7 +31,6 @@ btn.addEventListener('click', async (e) => {
   });
 });
 
-
 const itemList = document.getElementById('poke-list');
 
 const getPokemonIdFromURL = (url) => {
