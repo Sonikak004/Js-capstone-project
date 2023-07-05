@@ -2,9 +2,7 @@ const template = (data, abilities, moves) => `
 <div id="popup">
   <a href="#"><i class="fa-regular fa-circle-xmark fa-2xl" id="closePop"></i></a>
     <figure id="popPic">
-        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
-          data.id
-        }.svg" alt="">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" alt="${data.name}">
         <figcaption><h1>${data.name}</h1></figcaption>
     </figure>
 
