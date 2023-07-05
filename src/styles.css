@@ -74,15 +74,21 @@ footer {
   display: none;
 }
 
-#container{
+#container {
   position: absolute;
   width: 100%;
   top: 0;
-  background: linear-gradient(90deg, rgba(0, 0, 0, 0.8) 29.6%, rgba(255,255,255,1) 29.6%, rgba(255,255,255,1) 69.1%, rgba(0, 0, 0, 0.8) 69.1%);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.8) 29.6%,
+    rgba(255, 255, 255, 1) 29.6%,
+    rgba(255, 255, 255, 1) 69.1%,
+    rgba(0, 0, 0, 0.8) 69.1%
+  );
   overflow-y: auto;
 }
 
-#popup{
+#popup {
   margin: 0 auto;
   padding: 0.5rem 2rem;
   display: flex;
@@ -92,19 +98,21 @@ footer {
   max-height: 100vh;
 }
 
-#closePop{
+#closePop {
   align-self: flex-end;
 }
-#popPic, figcaption{
-  margin:0 auto;
+
+#popPic,
+figcaption {
+  margin: 0 auto;
   text-align: center;
 }
 
-#popPic>img{
-width: 20rem;
+#popPic > img {
+  width: 20rem;
 }
 
-.details{
+.details {
   margin-top: 2rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -112,7 +120,7 @@ width: 20rem;
   gap: 1rem 10rem;
 }
 
-.stats>ul{
+.stats > ul {
   margin: 0;
   padding: 0 0.1rem 0 0.1rem;
   display: flex;
@@ -120,22 +128,22 @@ width: 20rem;
   justify-content: flex-start;
 }
 
-li{
+li {
   list-style: none;
 }
 
-.comment-section{
+.comment-section {
   margin-top: 1rem;
   text-align: center;
   width: 20rem;
 }
 
-.commens>p{
+.commens > p {
   margin-top: 0 auto;
 }
 
-#comments{
-  border:1px solid black;
+#comments {
+  border: 1px solid black;
   margin-top: 0.5rem;
   padding: 0.5rem;
   line-height: 1.25rem;
@@ -143,7 +151,7 @@ li{
   overflow: auto;
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -153,7 +161,7 @@ form{
   margin: 1rem 0 2rem;
 }
 
-form>h4{
+form > h4 {
   align-self: center;
   margin: 0;
 }

@@ -44,4 +44,4 @@ const template = (data, abilities, moves) => `
 </div>
 `;
 
-export default template
+export default template;
