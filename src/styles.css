@@ -79,6 +79,7 @@ button {
   top: 2px;
   position: relative;
   width: 25px;
+  background: none;
 }
 
 .fas:hover {
@@ -123,4 +124,101 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Popup-Styling */
+.hidden {
+  display: none;
+}
+
+#container {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8) 29.6%,
+      rgba(255, 255, 255, 1) 29.6%,
+      rgba(255, 255, 255, 1) 69.1%,
+      rgba(0, 0, 0, 0.8) 69.1%
+    );
+  overflow-y: auto;
+}
+
+#popup {
+  margin: 0 auto;
+  padding: 0.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+  max-height: 100vh;
+}
+
+#closePop {
+  align-self: flex-end;
+}
+
+#popPic,
+figcaption {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#popPic > img {
+  width: 20rem;
+}
+
+.details {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  gap: 1rem 10rem;
+}
+
+.stats > ul {
+  margin: 0;
+  padding: 0 0.1rem 0 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+li {
+  list-style: none;
+}
+
+.comment-section {
+  margin-top: 1rem;
+  text-align: center;
+  width: 20rem;
+}
+
+.commens > p {
+  margin-top: 0;
+}
+
+#comments {
+  border: 1px solid black;
+  margin-top: 0.5rem;
+  padding: 0.5rem;
+  line-height: 1.25rem;
+  height: 7.375rem;
+  overflow: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  text-align: center;
+  margin: 1rem 0 2rem;
+}
+
+form > h4 {
+  align-self: center;
+  margin: 0;
 }

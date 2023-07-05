@@ -1,6 +1,9 @@
 import './styles.css';
+import template from './popupTemplate.js';
 
+// HOME PAGE
 const itemList = document.getElementById('poke-list');
+// const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
 
 const getPokemonIdFromURL = (url) => {
   const parts = url.split('/');
@@ -32,6 +35,7 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       commentsButton.classList.add('button');
       commentsButton.textContent = 'Comments';
       commentsButton.setAttribute('name', pokemon.name);
+      commentsButton.classList.add('pokePop');
 
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
@@ -49,3 +53,36 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
 
     itemList.appendChild(itemGrid);
   });
+
+// POPUP
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.createElement('div');
+  container.id = 'container';
+  container.className = 'hidden';
+
+  document.querySelector('main').addEventListener('click', async (e) => {
+    if (e.target.classList.contains('pokePop')) {
+      const poke = e.target.name;
+      const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
+      const data = await result.json();
+      const abilities = [];
+      const moves = [];
+      for (let i = 0; i < 4; i += 1) {
+        if (data.abilities[i] !== undefined) {
+          abilities.push(data.abilities[i].ability.name);
+        }
+        if (data.moves[i] !== undefined) {
+          moves.push(data.moves[i].move.name);
+        }
+      }
+      container.innerHTML = template(data, abilities, moves);
+      document.body.appendChild(container);
+      container.classList.remove('hidden');
+      const close = document.getElementById('closePop');
+      close.addEventListener('click', (e) => {
+        e.preventDefault();
+        container.classList.add('hidden');
+      });
+    }
+  });
+});
