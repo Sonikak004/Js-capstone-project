@@ -3,7 +3,8 @@ import template from './popupTemplate';
 
 const btn = document.getElementById('poke');
 const container = document.createElement('div')
-container.id="container"
+container.id = "container"
+container.className = "hidden"
 
 btn.addEventListener('click', async (e) => {
   e.preventDefault();
@@ -23,4 +24,10 @@ btn.addEventListener('click', async (e) => {
   }
   container.innerHTML = template(data, abilities, moves)
   document.body.appendChild(container)
+  container.classList.remove('hidden')
+  const close = document.getElementById('closePop');
+  close.addEventListener('click', (e) => {
+    e.preventDefault()
+    container.classList.add('hidden')
+  })
 })
