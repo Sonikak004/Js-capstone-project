@@ -1,4 +1,5 @@
 import './styles.css';
+import template from './popupTemplate';
 
 const btn = document.getElementById('poke');
 

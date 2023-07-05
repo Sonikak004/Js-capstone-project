@@ -50,3 +50,5 @@ const template = (data, abilities, moves) => `
     </form>
 </div>
 `;
+
+export default template
