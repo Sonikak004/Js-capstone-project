@@ -1,5 +1,5 @@
 import './styles.css';
-import template from './popupTemplate';
+import template from './popupTemplate.js';
 
 const btn = document.getElementById('poke');
 const container = document.createElement('div');
@@ -9,12 +9,11 @@ container.className = 'hidden';
 btn.addEventListener('click', async (e) => {
   e.preventDefault();
   const poke = e.target.name;
-  console.log(poke);
   const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
   const data = await result.json();
   const abilities = [];
   const moves = [];
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 4; i += 1) {
     if (data.abilities[i] !== undefined) {
       abilities.push(data.abilities[i].ability.name);
     }
