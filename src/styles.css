@@ -73,9 +73,10 @@ footer {
 #container{
   position: absolute;
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
   top: 0;
   background: rgb(0, 0, 0, 0.7);
+  overflow-y: auto;
 }
 
 #popup{
@@ -85,8 +86,8 @@ footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 60%;
-  height: 100%;
+  width: 40%;
+  max-height: 100vh;
   background: white;
 }
 
@@ -96,6 +97,11 @@ footer {
 #popPic, figcaption{
   margin:0 auto;
   text-align: center;
+}
+
+#popPic>img{
+  border:1px solid black;
+width: 20rem;
 }
 
 .details{
