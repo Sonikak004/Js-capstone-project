@@ -31,10 +31,7 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       const commentsButton = document.createElement('button');
       commentsButton.classList.add('button');
       commentsButton.textContent = 'Comments';
-
-      const reservationsButton = document.createElement('button');
-      reservationsButton.classList.add('button');
-      reservationsButton.textContent = 'Reservations';
+      commentsButton.setAttribute('name', pokemon.name);
 
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
@@ -43,7 +40,6 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
 
       buttonContainer.appendChild(likesButton);
       buttonContainer.appendChild(commentsButton);
-      buttonContainer.appendChild(reservationsButton);
 
       item.appendChild(title);
       item.appendChild(image);
