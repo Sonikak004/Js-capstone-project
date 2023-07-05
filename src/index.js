@@ -34,7 +34,7 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       commentsButton.classList.add('button');
       commentsButton.textContent = 'Comments';
       commentsButton.setAttribute('name', pokemon.name);
-      commentsButton.classList.add('pokePop')
+      commentsButton.classList.add('pokePop');
 
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
@@ -62,7 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('main').addEventListener('click', async (e) => {
     if (e.target.classList.contains('pokePop')) {
       const poke = e.target.name;
-      console.log(poke);
       const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
       const data = await result.json();
       const abilities = [];
