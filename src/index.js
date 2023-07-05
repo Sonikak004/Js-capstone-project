@@ -18,6 +18,11 @@ btn.addEventListener('click', async (e) => {
     if (data.abilities[i] !== undefined) {
       abilities.push(data.abilities[i].ability.name)
     }
+    if (data.moves[i] !== undefined) {
+      moves.push(data.moves[i].move.name)
+    }
+
   }
   console.log(abilities)
+  console.log(moves)
 })
