@@ -79,6 +79,7 @@ button {
   top: 2px;
   position: relative;
   width: 25px;
+  background: none;
 }
 
 .fas:hover {
