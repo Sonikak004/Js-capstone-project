@@ -12,18 +12,14 @@ const template = (data, abilities, moves) => `
         <div class="stats">Abilities:
             <ul>
             ${abilities
-              .map((ability) => {
-                `<li>${ability}</li>`;
-              })
+              .map((ability) =>`<li>${ability}</li>`)
               .join('')}
             </ul>
         </div>
         <div class="stats">Moves:
             <ul>
             ${moves
-              .map((move) => {
-                `<li>${move}</li>`;
-              })
+              .map((move) =>`<li>${move}</li>`)
               .join('')}
             </ul>
         </div>  
