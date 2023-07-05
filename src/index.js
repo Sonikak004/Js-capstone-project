@@ -13,7 +13,7 @@ btn.addEventListener('click', async (e) => {
   const data = await result.json();
   const abilities = []
   const moves = []
-  for (let i = 0; i < 5; i++){
+  for (let i = 0; i < 4; i++){
     if (data.abilities[i] !== undefined) {
       abilities.push(data.abilities[i].ability.name)
     }
