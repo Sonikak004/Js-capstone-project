@@ -4,8 +4,8 @@ const template = (data, abilities, moves) => `
         <i class="fas fa-times fa-lg"></i></a>
     <figure id="popPic">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
-  data.id
-}.svg" alt="${data.name}">
+          data.id
+        }.svg" alt="${data.name}">
         <figcaption><h1>${data.name}</h1></figcaption>
     </figure>
 
@@ -23,6 +23,10 @@ const template = (data, abilities, moves) => `
             </ul>
         </div>  
     </div>
+    <div class="comment-section">
+            <h4 id='comments-title'>Comments</h4>
+            <div id="comments"></div>
+        </div>
 `;
 
 export default template;
