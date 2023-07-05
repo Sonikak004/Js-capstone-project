@@ -78,13 +78,14 @@ footer {
   position: absolute;
   width: 100%;
   top: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(0, 0, 0, 0.8) 29.6%,
-    rgba(255, 255, 255, 1) 29.6%,
-    rgba(255, 255, 255, 1) 69.1%,
-    rgba(0, 0, 0, 0.8) 69.1%
-  );
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.8) 29.6%,
+      rgba(255, 255, 255, 1) 29.6%,
+      rgba(255, 255, 255, 1) 69.1%,
+      rgba(0, 0, 0, 0.8) 69.1%
+    );
   overflow-y: auto;
 }
 
@@ -139,7 +140,7 @@ li {
 }
 
 .commens > p {
-  margin-top: 0 auto;
+  margin-top: 0;
 }
 
 #comments {
@@ -154,7 +155,6 @@ li {
 form {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 0.5rem;
   align-items: flex-start;
   text-align: center;
