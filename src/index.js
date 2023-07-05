@@ -3,7 +3,7 @@ import template from './popupTemplate.js';
 
 // HOME PAGE
 const itemList = document.getElementById('poke-list');
-const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
+// const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
 
 const getPokemonIdFromURL = (url) => {
   const parts = url.split('/');
