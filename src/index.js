@@ -1,6 +1,6 @@
 import './styles.css';
 import template from './popupTemplate.js';
-import display from './fetchComments'
+import display from './fetchComments.js';
 
 // HOME PAGE
 const itemList = document.getElementById('poke-list');
@@ -36,13 +36,13 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       commentsButton.classList.add('button');
       commentsButton.textContent = 'Comments';
       commentsButton.setAttribute('name', pokemon.name);
-      commentsButton.setAttribute('id', pokemonId + 'c');
+      commentsButton.setAttribute('id', `${pokemonId}c`);
       commentsButton.classList.add('pokePop');
 
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
       likesButton.classList.add('fa-heart');
-      likesButton.setAttribute('id', pokemonId + 'l');
+      likesButton.setAttribute('id', `${pokemonId}l`);
       likesButton.textContent = '';
 
       buttonContainer.appendChild(likesButton);
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const poke = e.target.name;
       const commentsID = e.target.id.toString();
       const pokeResult = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${poke}`
+        `https://pokeapi.co/api/v2/pokemon/${poke}`,
       );
       const pokeData = await pokeResult.json();
       const abilities = [];
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Getting comments from InvolvementAPI
       const comments = document.getElementById('comments');
-      display(comments, commentsID, apiKey)
+      display(comments, commentsID, apiKey);
 
       // Close the Pop-up
       const close = document.getElementById('closePop');
