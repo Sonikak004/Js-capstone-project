@@ -10,6 +10,15 @@ const getPokemonIdFromURL = (url) => {
   return parts[parts.length - 2];
 };
 
+// Function to update the like count in the UI
+function updateLikeCount(likesButtonId) {
+  const likesButton = document.getElementById(likesButtonId);
+  if (likesButton) {
+    const likeCount = likesData.filter((like) => like.item_id === likesButton.getAttribute('id')).length;
+    likesButton.textContent = likeCount.toString();
+  }
+}
+
 fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
   .then((response) => response.json())
   .then((data) => {
