@@ -202,18 +202,19 @@ li {
   margin-top: 0rem;
   padding: 0 0.5rem 0.5rem;
   line-height: 1.3rem;
-  height: 5.64rem;
+  max-height: 5.64rem;
   overflow: auto;
   text-align: left;
 }
 
 form {
+  width: 20rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: flex-start;
   text-align: center;
-  margin: 1rem 0 2rem;
+  margin: 0.5rem 0 2rem;
 }
 
 form > h4 {

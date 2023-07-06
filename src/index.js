@@ -1,6 +1,6 @@
 import './styles.css';
 import template from './popupTemplate.js';
-import display from './displayComments'
+import display from './fetchComments'
 
 // HOME PAGE
 const itemList = document.getElementById('poke-list');
@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.classList.contains('pokePop')) {
       // Getting Pokemon data from PokeAPI
       const poke = e.target.name;
+      const commentsID = e.target.id.toString();
       const pokeResult = await fetch(
         `https://pokeapi.co/api/v2/pokemon/${poke}`
       );
@@ -87,11 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Getting comments from InvolvementAPI
       const comments = document.getElementById('comments');
-      const commentsID = e.target.id.toString();
-      const getCommentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/comments?item_id=${commentsID}`;
-      const commentsResult = await fetch(getCommentsURL);
-      const commentsData = await commentsResult.json();
-      display(comments, commentsData)
+      display(comments, commentsID, apiKey)
 
       // Close the Pop-up
       const close = document.getElementById('closePop');
