@@ -1,13 +1,12 @@
-import _ from 'lodash';
 import './styles.css';
 import template from './popupTemplate.js';
 import display from './fetchComments.js';
-import logo from './PokeFiles-Logo.png'
+import logo from './PokeFiles-Logo.png';
 
 // HOME PAGE
-const pokeLogo = new Image()
+const pokeLogo = new Image();
 pokeLogo.src = logo;
-pokeLogo.alt = 'logo'
+pokeLogo.alt = 'logo';
 document.getElementById('logo').appendChild(pokeLogo);
 const itemList = document.getElementById('poke-list');
 const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
@@ -75,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const poke = e.target.name;
       const commentsID = e.target.id.toString();
       const pokeResult = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${poke}`
+        `https://pokeapi.co/api/v2/pokemon/${poke}`,
       );
       const pokeData = await pokeResult.json();
       const abilities = [];
@@ -102,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
       form.addEventListener('click', async (e) => {
         if (e.target.id === 'submit') {
           e.preventDefault();
-          console.log(container.firstChild.innerHTML);
           const input = document.getElementById('name');
           const textArea = document.getElementById('comment');
           const payload = {
@@ -115,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
-          }).then((result) => console.log(result));
+          }).then((result) => result.json());
           display(comments, commentsID, apiKey, title);
           form.reset();
         }

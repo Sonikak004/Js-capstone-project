@@ -27,10 +27,6 @@ header {
   background: #2c2c2c;
 }
 
-#logo>img{
-  width: 10rem;
-}
-
 nav {
   display: flex;
   flex-direction: row;
@@ -57,11 +53,15 @@ nav {
   width: 200px;
 }
 
-.item img {
+.item > img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 10px;
+}
+
+#logo > img {
+  width: 10rem;
 }
 
 button {

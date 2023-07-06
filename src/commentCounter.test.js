@@ -1,7 +1,7 @@
 /**
  * @jest-environment jsdom
  */
-import counter from './commentCounter';
+import counter from './commentCounter.js';
 
 describe('testing the comment counting function', () => {
   test('the comment container returns count of 1 after appending comment element', () => {

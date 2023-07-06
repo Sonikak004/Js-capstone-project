@@ -1,4 +1,5 @@
-import counter from './commentCounter';
+import counter from './commentCounter.js';
+
 export default async (container, id, key, title) => {
   const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${key}/comments?item_id=${id}`;
   const result = await fetch(url);
