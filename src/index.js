@@ -1,9 +1,8 @@
 import './styles.css';
 import template from './popupTemplate.js';
 
-// HOME PAGE
 const itemList = document.getElementById('poke-list');
-// const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
+let likesData = [];
 
 const getPokemonIdFromURL = (url) => {
   const parts = url.split('/');
@@ -43,9 +42,25 @@ async function likePokemon(pokemonName, likesButtonId) {
 
     updateLikeCount(likesButtonId);
 
+    // Update the likes count in the popup
+    const likesCountElement = document.querySelector('#likesCount');
+    if (likesCountElement) {
+      likesCountElement.textContent = likesData
+        .filter((like) => like.item_id === pokemonName).length.toString();
+    }
+  } else {
+    console.error('Failed to submit like');
+  }
+}
+
 fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
-  .then((response) => response.json())
-  .then((data) => {
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error('Failed to fetch Pokemon data');
+    }
+    return response.json();
+  })
+  .then(async (data) => {
     const itemGrid = document.createElement('div');
     itemGrid.classList.add('poke-grid');
 
@@ -78,12 +93,20 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       commentsButton.classList.add('button');
       commentsButton.textContent = 'Comments';
       commentsButton.setAttribute('name', pokemon.name);
+      commentsButton.setAttribute('id', `${pokemon.name}c`);
       commentsButton.classList.add('pokePop');
 
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
       likesButton.classList.add('fa-heart');
+      likesButton.setAttribute('id', `${pokemon.name}l`);
       likesButton.textContent = '';
+
+      likesButton.addEventListener('click', async () => {
+        await likePokemon(pokemon.name);
+      });
+
+      updateLikeCount(likesButton);
 
       buttonContainer.appendChild(likesButton);
       buttonContainer.appendChild(commentsButton);
@@ -95,9 +118,13 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
     });
 
     itemList.appendChild(itemGrid);
+  })
+  .catch((error) => {
+    console.log(error);
   });
 
 // POPUP
+
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.createElement('div');
   container.id = 'container';
@@ -118,7 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
           moves.push(data.moves[i].move.name);
         }
       }
-      container.innerHTML = template(data, abilities, moves);
+      const likesCount = likesData.filter((like) => like.item_id === poke).length;
+      container.innerHTML = template(data, abilities, moves, likesCount);
+
+      // Update the likes count in the popup
+      const likesCountElement = container.querySelector('#likesCount');
+      if (likesCountElement) {
+        likesCountElement.textContent = likesCount.toString();
+      }
+
       document.body.appendChild(container);
       container.classList.remove('hidden');
       const close = document.getElementById('closePop');
