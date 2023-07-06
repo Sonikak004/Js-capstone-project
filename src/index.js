@@ -19,6 +19,30 @@ function updateLikeCount(likesButtonId) {
   }
 }
 
+// Function to handle liking a Pokemon
+async function likePokemon(pokemonName, likesButtonId) {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/hY8Nz1dVpsdglVg97VQ1/likes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ item_id: pokemonName }),
+  });
+
+  if (response.status === 201) {
+    const updatedLikesResponse = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/hY8Nz1dVpsdglVg97VQ1/likes');
+    if (updatedLikesResponse.ok) {
+      try {
+        likesData = await updatedLikesResponse.json();
+      } catch (error) {
+        console.error('Error parsing updated likes data:', error);
+      }
+    } else {
+      console.error('Failed to fetch updated likes data');
+    }
+
+    updateLikeCount(likesButtonId);
+
 fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
   .then((response) => response.json())
   .then((data) => {
