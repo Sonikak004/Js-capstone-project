@@ -21,9 +21,14 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   color: aliceblue;
   background: #2c2c2c;
+}
+
+#logo>img{
+  width: 10rem;
 }
 
 nav {

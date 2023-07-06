@@ -1,8 +1,14 @@
+import _ from 'lodash';
 import './styles.css';
 import template from './popupTemplate.js';
 import display from './fetchComments.js';
+import logo from './PokeFiles-Logo.png'
 
 // HOME PAGE
+const pokeLogo = new Image()
+pokeLogo.src = logo;
+pokeLogo.alt = 'logo'
+document.getElementById('logo').appendChild(pokeLogo);
 const itemList = document.getElementById('poke-list');
 const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
 
