@@ -3,7 +3,7 @@ import template from './popupTemplate.js';
 
 // HOME PAGE
 const itemList = document.getElementById('poke-list');
-// const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
+const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
 
 const getPokemonIdFromURL = (url) => {
   const parts = url.split('/');
@@ -35,11 +35,13 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       commentsButton.classList.add('button');
       commentsButton.textContent = 'Comments';
       commentsButton.setAttribute('name', pokemon.name);
+      commentsButton.setAttribute('id', pokemonId + 'c');
       commentsButton.classList.add('pokePop');
 
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
       likesButton.classList.add('fa-heart');
+      likesButton.setAttribute('id', pokemonId + 'l');
       likesButton.textContent = '';
 
       buttonContainer.appendChild(likesButton);
@@ -62,22 +64,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('main').addEventListener('click', async (e) => {
     if (e.target.classList.contains('pokePop')) {
+      // Getting Pokemon data from PokeAPI
       const poke = e.target.name;
-      const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
-      const data = await result.json();
+      const pokeResult = await fetch(
+        `https://pokeapi.co/api/v2/pokemon/${poke}`
+      );
+      const pokeData = await pokeResult.json();
       const abilities = [];
       const moves = [];
       for (let i = 0; i < 4; i += 1) {
-        if (data.abilities[i] !== undefined) {
-          abilities.push(data.abilities[i].ability.name);
+        if (pokeData.abilities[i] !== undefined) {
+          abilities.push(pokeData.abilities[i].ability.name);
         }
-        if (data.moves[i] !== undefined) {
-          moves.push(data.moves[i].move.name);
+        if (pokeData.moves[i] !== undefined) {
+          moves.push(pokeData.moves[i].move.name);
         }
       }
-      container.innerHTML = template(data, abilities, moves);
+      container.innerHTML = template(pokeData, abilities, moves);
       document.body.appendChild(container);
       container.classList.remove('hidden');
+
+      // Getting comments from InvolvementAPI
+      const comments = document.getElementById('comments');
+      const commentsID = e.target.id.toString();
+      // console.log(commentsID);
+      const getCommentsURL = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/comments?item_id=${commentsID}`;
+      const commentsResult = await fetch(getCommentsURL);
+      const commentsData = await commentsResult.json();
+      commentsData.forEach(comment => {
+        // console.log(comment.comment)
+        const p = document.createElement('p')
+        p.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+        comments.appendChild(p)
+      });
+      console.log(commentsData)
+
+      // Close the Pop-up
       const close = document.getElementById('closePop');
       close.addEventListener('click', (e) => {
         e.preventDefault();
