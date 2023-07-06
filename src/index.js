@@ -49,6 +49,16 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
     const itemGrid = document.createElement('div');
     itemGrid.classList.add('poke-grid');
 
+    const likesResponse = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/hY8Nz1dVpsdglVg97VQ1/likes');
+    if (!likesResponse.ok) {
+      throw new Error('Failed to fetch likes data');
+    }
+    try {
+      likesData = await likesResponse.json();
+    } catch (error) {
+      console.error('Error parsing likes data:', error);
+    }
+
     data.results.forEach((pokemon) => {
       const item = document.createElement('div');
       item.classList.add('item');
