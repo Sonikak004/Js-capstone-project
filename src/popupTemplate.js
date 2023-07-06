@@ -8,7 +8,12 @@ const template = (data, abilities, moves) => `
 }.svg" alt="${data.name}">
         <figcaption><h1>${data.name}</h1></figcaption>
     </figure>
-
+    <div class="likes-container">
+      <button class="like-button">
+        <i class="fas fa-heart"></i>
+      </button>
+      <span id="likesCount">${likesCount}</span>
+    </div>
     <div class="details">
         <div class="stats">Height: ${data.height}</div>
         <div class="stats">Weight: ${data.weight}</div>
