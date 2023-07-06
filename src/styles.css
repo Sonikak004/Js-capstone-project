@@ -16,6 +16,11 @@ a {
   color: inherit;
 }
 
+span {
+  position: relative;
+  right: 5px;
+}
+
 header {
   border: 1px solid black;
   display: flex;
