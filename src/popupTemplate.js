@@ -30,8 +30,8 @@ const template = (data, abilities, moves) => `
   </div>
   <form id='form'>
     <h4>Add a comment</h4>
-    <input type="text" id="name" name='name' placeholder="Your name">
-    <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Your insights"></textarea>
+    <input type="text" id="name" name='name' placeholder="Your name" required>
+    <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Your insights" required></textarea>
     <button type="submit" id='submit'>Comment</button>
   </form>
 </div>

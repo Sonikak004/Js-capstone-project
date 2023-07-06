@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const poke = e.target.name;
       const commentsID = e.target.id.toString();
       const pokeResult = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${poke}`,
+        `https://pokeapi.co/api/v2/pokemon/${poke}`
       );
       const pokeData = await pokeResult.json();
       const abilities = [];
@@ -87,8 +87,33 @@ document.addEventListener('DOMContentLoaded', () => {
       container.classList.remove('hidden');
 
       // Getting comments from InvolvementAPI
+      const title = document.getElementById('comments-title');
       const comments = document.getElementById('comments');
-      display(comments, commentsID, apiKey);
+      display(comments, commentsID, apiKey, title);
+
+      // Sending comments to InvolvementAPI
+      const form = document.getElementById('form');
+      form.addEventListener('click', async (e) => {
+        if (e.target.id === 'submit') {
+          e.preventDefault();
+          console.log(container.firstChild.innerHTML);
+          const input = document.getElementById('name');
+          const textArea = document.getElementById('comment');
+          const payload = {
+            item_id: commentsID,
+            username: input.value,
+            comment: textArea.value,
+          };
+          const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/comments`;
+          await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          }).then((result) => console.log(result));
+          display(comments, commentsID, apiKey, title);
+          form.reset();
+        }
+      });
 
       // Close the Pop-up
       const close = document.getElementById('closePop');
