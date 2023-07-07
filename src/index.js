@@ -90,13 +90,14 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       const likesButton = document.createElement('button');
       likesButton.classList.add('fas');
       likesButton.classList.add('fa-heart');
-      likesButton.textContent = '';
+        likesButton.setAttribute('id', pokemon.name);
 
-      const likesCount = likesCountMap[pokemon.name] || 0;
+        const likeCount = likesData[pokemon.name] || 0;
+        likesButton.textContent = likeCount;
 
-      const likesCountElement = document.createElement('span');
-      likesCountElement.id = `likesCount-${pokemon.name}`;
-      likesCountElement.textContent = likesCount;
+        likesButton.addEventListener('click', async () => {
+          await likePokemon(pokemon.name, pokemon.name);
+        });
 
       buttonContainer.appendChild(likesButton);
       buttonContainer.appendChild(likesCountElement);
