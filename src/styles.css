@@ -88,7 +88,7 @@ button {
   color: #feca1b;
   top: 2px;
   letter-spacing: 2px;
-  right: 16px;
+  right: 14px;
   position: relative;
   width: 25px;
   background: none;
@@ -140,6 +140,7 @@ button {
 .pokes:hover {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
+
 /* footer  */
 
 footer {
