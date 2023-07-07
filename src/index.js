@@ -90,7 +90,7 @@ const renderUI = () => {
         commentsButton.classList.add('button');
         commentsButton.textContent = 'Comments';
         commentsButton.setAttribute('name', pokemon.name);
-        commentsButton.setAttribute('id', `${pokemon.name}c`);
+        commentsButton.setAttribute('id', `${pokemonId}c`);
         commentsButton.classList.add('pokePop');
 
         const likesButton = document.createElement('button');
