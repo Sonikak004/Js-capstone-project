@@ -22,26 +22,32 @@ function updateLikeCount(likesButtonId) {
   }
 };
 
-const updateLikeCount = async (item, likesCount) => {
-  const likesCountElement = document.getElementById(`likesCount-${item}`);
-  if (likesCountElement) {
-    likesCountElement.textContent = likesCount || 0;
-
+// Function to handle liking a Pokemon
+async function likePokemon(pokemonName, likesButtonId) {
     try {
-      await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
+    if (Object.prototype.hasOwnProperty.call(likesData, pokemonName)) {
+      // If the Pokemon name exists in likesData, proceed with the like operation
+      const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          item_id: item,
-        }),
+        body: JSON.stringify({ item_id: pokemonName }),
       });
+
+      if (response.ok) {
+        const existingLikesCount = likesData[pokemonName] || 0;
+        const newLikesCount = existingLikesCount + 1; // Increment the existing likes count by 1
+        likesData[pokemonName] = newLikesCount; // Update likesData with the new likes count
+        updateLikeCount(likesButtonId); // Update like count in the UI
+        updateLikeCountInPopup(pokemonName, newLikesCount); // Update like count in the popup
+        localStorage.setItem('likesData', JSON.stringify(likesData)); // Store the updated likes data in local storage
+      }
+    }
     } catch (error) {
-      console.log('Error recording like:', error);
+    // Handle error if needed
     }
   }
-};
 
 const updateCounts = async () => {
   const likesCountMap = await fetchAllLikesCount();
