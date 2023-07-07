@@ -1,5 +1,11 @@
 <a name="readme-top"></a>
 
+<div align="center">
+
+  <h2><b>PokeFiles</b></h2>
+
+</div>
+
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
@@ -51,8 +57,8 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **[Uses PokeAPI to get all the Pokemon data]**
-- **[Uses Involvement API to display and store likes and comments]**
+- **Uses PokeAPI to get all the Pokemon data**
+- **Uses Involvement API to display and store likes and comments**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -113,9 +119,9 @@ Or you can use the dev server. To initiate it, run `npm build run` in your cli a
 
 👤 **Sonika**
 
-- GitHub: [@Sonikak004](https://github.com/Sonikak004)
-- Twitter: []()
-- LinkedIn: [LinkedIn]()
+- GitHub: [@sonikak004](https://github.com/sonikak004)
+- Twitter: [@sonikak004](https://twitter.com/sonikak004)
+- LinkedIn: [sonikak004](https://linkedin.com/in/sonikak004)
 
 👤 **Alfred**
 
@@ -127,7 +133,7 @@ Or you can use the dev server. To initiate it, run `npm build run` in your cli a
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[No planned future features at this point]**
+- [ ] **No planned future features at this point**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
