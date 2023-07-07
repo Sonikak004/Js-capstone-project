@@ -22,11 +22,10 @@ function updateLikeCount(likesButtonId) {
   }
 }
 
-// Function to handle liking a Pokemon
+// Function to handling liking a Pokemon
 async function likePokemon(pokemonName, likesButtonId) {
   try {
     if (Object.prototype.hasOwnProperty.call(likesData, pokemonName)) {
-      // If the Pokemon name exists in likesData, proceed with the like operation
       const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
         method: 'POST',
         headers: {
@@ -37,19 +36,18 @@ async function likePokemon(pokemonName, likesButtonId) {
 
       if (response.ok) {
         const existingLikesCount = likesData[pokemonName] || 0;
-        const newLikesCount = existingLikesCount + 1; // Increment the existing likes count by 1
-        likesData[pokemonName] = newLikesCount; // Update likesData with the new likes count
-        updateLikeCount(likesButtonId); // Update like count in the UI
-        updateLikeCountInPopup(pokemonName, newLikesCount); // Update like count in the popup
-        localStorage.setItem('likesData', JSON.stringify(likesData)); // Store the updated likes data in local storage
+        const newLikesCount = existingLikesCount + 1;
+        likesData[pokemonName] = newLikesCount;
+        updateLikeCount(likesButtonId);
+        updateLikeCountInPopup(pokemonName, newLikesCount);
+        localStorage.setItem('likesData', JSON.stringify(likesData));
       }
     }
   } catch (error) {
-    // Handle error if needed
+    // Handle errors
   }
 }
 
-// Render the UI
 const renderUI = () => {
   itemGrid.innerHTML = '';
 
@@ -62,7 +60,6 @@ const renderUI = () => {
     })
     .then((data) => {
       const fetchedCount = data.results.length;
-      // Counter for all the items fetched through
       const counterElement = document.getElementById('counter');
       counterElement.textContent = `Pokémon(${fetchedCount})`;
 
@@ -112,11 +109,10 @@ const renderUI = () => {
       itemList.appendChild(itemGrid);
     })
     .catch(() => {
-      // Handle error if needed
+      // Handle errors
     });
 };
 
-// Fetch likes data from local storage or API
 const fetchLikesData = async () => {
   const storedLikesData = localStorage.getItem('likesData');
   if (storedLikesData) {
@@ -134,12 +130,11 @@ const fetchLikesData = async () => {
         renderUI();
       }
     } catch (error) {
-      // Handle error if needed
+      // Handles error
     }
   }
 };
 
-// Fetch likes data and render the UI
 fetchLikesData();
 
 // POPUP

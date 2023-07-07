@@ -19,7 +19,7 @@ describe('Fetched Pokemon Counter', () => {
       `;
   });
 
-  test('should update the fetched Pokemon count correctly', () => {
+  test('should update the fetched count correctly', () => {
     const data = {
       results: [
         { name: 'Pikachu' },

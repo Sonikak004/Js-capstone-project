@@ -1,4 +1,3 @@
-// Function to update the like count in the popup
 function updateLikeCountInPopup(pokemonName, likeCount) {
   const popupContainer = document.getElementById('container');
   if (popupContainer) {
