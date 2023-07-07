@@ -1,3 +1,9 @@
+/**
+ * @jest-environment jsdom
+ */
+
+describe('Fetched Pokemon Counter', () => {
+  beforeEach(() => {
     document.body.innerHTML = `
         <div id="poke-list">
           <div class="poke-grid">
