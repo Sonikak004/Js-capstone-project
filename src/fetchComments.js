@@ -5,11 +5,20 @@ export default async (container, id, key, title) => {
   const result = await fetch(url);
   const data = await result.json();
   container.innerHTML = '';
-  data.forEach((comment) => {
+
+  if (Array.isArray(data)) {
+    data.forEach((comment) => {
+      const p = document.createElement('p');
+      p.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+      container.appendChild(p);
+    });
+    const count = counter(container);
+    title.innerText = `Comments (${count})`;
+  } else {
+    // Handle cases where data is not an array
     const p = document.createElement('p');
-    p.innerHTML = `${comment.creation_date} ${comment.username}: ${comment.comment}`;
+    p.innerHTML = 'No comments available';
     container.appendChild(p);
-  });
-  const count = counter(container);
-  title.innerText = `Comments (${count})`;
+    title.innerText = 'Comments (0)';
+  }
 };
