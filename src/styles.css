@@ -119,7 +119,7 @@ button {
   padding: 12px 16px;
   text-decoration: none;
   text-overflow: ellipsis;
-  transition: all .14s ease-out;
+  transition: all 0.14s ease-out;
   white-space: nowrap;
 }
 
@@ -129,7 +129,7 @@ button {
 
 .button-hov:hover {
   box-shadow: 4px 4px 0 #2c2c2c;
-  transform: translate(-4px,-4px);
+  transform: translate(-4px, -4px);
 }
 
 .button-container {
@@ -192,8 +192,7 @@ footer {
   position: fixed;
   width: 100%;
   top: 0;
-  background:
-    rgb(0, 6, 30, 0.8);
+  background: rgb(0, 6, 30, 0.8);
   overflow-y: auto;
   height: 100%;
 }
@@ -219,11 +218,11 @@ figcaption {
   width: 100%;
 }
 
-#popPic{
-  background: rgb(0, 0, 49); 
+#popPic {
+  background: rgb(0, 0, 49);
 }
 
-#caption>h1{
+#caption > h1 {
   color: #f83636;
 }
 
@@ -280,7 +279,8 @@ form > h4 {
   align-self: center;
   margin: 0;
 }
-#submit{
+
+#submit {
   background: #f83636;
   color: #fff;
   padding: 0.25rem;
