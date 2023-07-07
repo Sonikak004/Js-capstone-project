@@ -63,7 +63,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link]()
+- [Live Demo Link](https://sonikak004.github.io/Js-capstone-project/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
