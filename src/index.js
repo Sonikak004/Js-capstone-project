@@ -49,31 +49,22 @@ async function likePokemon(pokemonName, likesButtonId) {
     }
   }
 
-const updateCounts = async () => {
-  const likesCountMap = await fetchAllLikesCount();
-  const items = Array.from(document.getElementsByClassName('item'));
-  items.forEach((item) => {
-    const itemName = item.getAttribute('name');
-    updateLikeCount(itemName, likesCountMap[itemName]);
-  });
-};
-
-const storeLikesCount = (likesCountMap) => {
-  localStorage.setItem('likesCountMap', JSON.stringify(likesCountMap));
-};
-
-const retrieveLikesCount = () => {
-  const likesCountMap = localStorage.getItem('likesCountMap');
-  return likesCountMap ? JSON.parse(likesCountMap) : {};
-};
+// Render the UI
+const renderUI = () => {
+  itemGrid.innerHTML = '';
 
 fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
-  .then((response) => response.json())
-  .then(async (data) => {
-    const likesCountMap = retrieveLikesCount();
-
-    const itemGrid = document.createElement('div');
-    itemGrid.classList.add('poke-grid');
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error('Failed to fetch Pokemon data');
+      }
+      return response.json();
+    })
+    .then((data) => {
+      const fetchedCount = data.results.length;
+      // Counter for all the items fetched through
+      const counterElement = document.getElementById('counter');
+      counterElement.textContent = `Pokémon(${fetchedCount})`;
 
     data.results.forEach((pokemon) => {
       const item = document.createElement('div');
