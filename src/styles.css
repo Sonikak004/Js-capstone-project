@@ -89,7 +89,7 @@ button {
 .fas {
   font-size: 17px;
   height: 22px;
-  color: #feca1b;
+  color: #028df0;
   top: 2px;
   letter-spacing: 2px;
   position: relative;
@@ -98,7 +98,7 @@ button {
 }
 
 .fas:hover {
-  color: rgb(2, 141, 240);
+  color: #f83636;
 }
 
 .button-hov {
