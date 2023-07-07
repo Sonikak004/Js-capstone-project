@@ -112,35 +112,30 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
     itemList.appendChild(itemGrid);
     updateCounts();
 
-    const likeButtons = document.getElementsByClassName('fas fa-heart');
-    Array.from(likeButtons).forEach((likeButton) => {
-      likeButton.addEventListener('click', async (e) => {
-        e.preventDefault();
-        const item = e.target.parentNode.parentNode.getAttribute('name');
-        const likesCountElement = document.getElementById(`likesCount-${item}`);
-        if (likesCountElement) {
-          let likesCount = parseInt(likesCountElement.textContent, 10) || 0;
-          likesCount += 1;
-          likesCountElement.textContent = likesCount;
-          likesCountMap[item] = likesCount;
-          storeLikesCount(likesCountMap);
-        }
-
+const fetchLikesData = async () => {
+  const storedLikesData = localStorage.getItem('likesData');
+  if (storedLikesData) {
+    likesData = JSON.parse(storedLikesData);
+    renderUI();
+  } else {
         try {
-          await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-              item_id: item,
-            }),
+      const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`);
+      if (response.ok) {
+        const data = await response.json();
+        data.forEach((like) => {
+          likesData[like.item_id] = like.likes;
           });
+        localStorage.setItem('likesData', JSON.stringify(likesData));
+        renderUI();
+      }
         } catch (error) {
-          console.log('Error recording like:', error);
+      // Handle error if needed
         }
-      });
-    });
+  }
+};
+
+// Fetch likes data and render the UI
+fetchLikesData();
 
     document.addEventListener('DOMContentLoaded', () => {
       const container = document.createElement('div');
