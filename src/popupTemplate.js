@@ -7,7 +7,7 @@ const template = (data, abilities, moves) => `
     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
   data.id
 }.svg" alt="${data.name}">
-    <figcaption><h1>${data.name}</h1></figcaption>
+    <figcaption id="caption"><h1>${data.name}</h1></figcaption>
   </figure>
 
   <div class="details">

@@ -193,25 +193,19 @@ footer {
   width: 100%;
   top: 0;
   background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.8) 29.6%,
-      rgba(255, 255, 255, 1) 29.6%,
-      rgba(255, 255, 255, 1) 69.1%,
-      rgba(0, 0, 0, 0.8) 69.1%
-    );
+    rgb(0, 6, 30, 0.8);
   overflow-y: auto;
   height: 100%;
 }
 
 #popup {
   margin: 0 auto;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 40%;
-  max-height: 100vh;
+  background-color: #d3cf62;
 }
 
 #closePop {
@@ -222,6 +216,15 @@ footer {
 figcaption {
   margin: 0 auto;
   text-align: center;
+  width: 100%;
+}
+
+#popPic{
+  background: rgb(0, 0, 49); 
+}
+
+#caption>h1{
+  color: #f83636;
 }
 
 #popPic > img {
@@ -255,7 +258,6 @@ li {
 }
 
 #comments {
-  /* border: 1px solid black; */
   margin-top: 0;
   padding: 0 0.5rem 0.5rem;
   line-height: 1.3rem;
@@ -277,4 +279,10 @@ form {
 form > h4 {
   align-self: center;
   margin: 0;
+}
+#submit{
+  background: #f83636;
+  color: #fff;
+  padding: 0.25rem;
+  border-radius: 4px;
 }
