@@ -15,7 +15,7 @@ const itemList = document.getElementById('poke-list');
 let likesData = {};
 const itemGrid = document.createElement('div');
 itemGrid.classList.add('poke-grid');
-const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
+const apiKey = 'J5DvxD332GJ3W0sJ0ALC';
 
 const getPokemonIdFromURL = (url) => {
   const parts = url.split('/');
@@ -60,7 +60,7 @@ async function likePokemon(pokemonName, likesButtonId) {
 const renderUI = () => {
   itemGrid.innerHTML = '';
 
-  fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=40')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Failed to fetch Pokemon data');
@@ -75,6 +75,7 @@ const renderUI = () => {
       data.results.forEach((pokemon) => {
         const item = document.createElement('div');
         item.classList.add('item');
+        item.classList.add('pokes');
 
         const title = document.createElement('h2');
         title.textContent = pokemon.name;
@@ -82,6 +83,7 @@ const renderUI = () => {
         const image = document.createElement('img');
         const pokemonId = getPokemonIdFromURL(pokemon.url);
         image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
+        image.classList.add('pokemon');
         image.alt = pokemon.name;
 
         const buttonContainer = document.createElement('div');
@@ -89,6 +91,7 @@ const renderUI = () => {
 
         const commentsButton = document.createElement('button');
         commentsButton.classList.add('button');
+        commentsButton.classList.add('button-hov');
         commentsButton.textContent = 'Comments';
         commentsButton.setAttribute('name', pokemon.name);
         commentsButton.setAttribute('id', `${pokemonId}c`);
@@ -189,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
-          }).then((result) => console.log(result));
+          }).then((result) => result.json(result));
           display(comments, commentsID, apiKey, title);
           form.reset();
         }
