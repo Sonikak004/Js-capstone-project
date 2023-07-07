@@ -287,8 +287,8 @@ form > h4 {
   border-radius: 4px;
 }
 
-#submit:hover{
+#submit:hover {
   cursor: pointer;
   background: #feca1b;
-  color:#000045;
+  color: #000045;
 }
