@@ -26,6 +26,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   color: aliceblue;
   background: #2c2c2c;
@@ -57,11 +58,15 @@ nav {
   width: 200px;
 }
 
-.item img {
+.item > img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 10px;
+}
+
+#logo > img {
+  width: 10rem;
 }
 
 button {
@@ -151,6 +156,7 @@ footer {
       rgba(0, 0, 0, 0.8) 69.1%
     );
   overflow-y: auto;
+  height: 100%;
 }
 
 #popup {
@@ -174,15 +180,15 @@ figcaption {
 }
 
 #popPic > img {
-  width: 20rem;
+  width: 15rem;
 }
 
 .details {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 8rem 8rem;
   text-align: center;
-  gap: 1rem 10rem;
+  gap: 1rem 7rem;
 }
 
 .stats > ul {
@@ -203,26 +209,24 @@ li {
   width: 20rem;
 }
 
-.commens > p {
-  margin-top: 0;
-}
-
 #comments {
-  border: 1px solid black;
-  margin-top: 0.5rem;
-  padding: 0.5rem;
-  line-height: 1.25rem;
-  height: 7.375rem;
+  /* border: 1px solid black; */
+  margin-top: 0;
+  padding: 0 0.5rem 0.5rem;
+  line-height: 1.3rem;
+  max-height: 5.64rem;
   overflow: auto;
+  text-align: left;
 }
 
 form {
+  width: 20rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
   align-items: flex-start;
   text-align: center;
-  margin: 1rem 0 2rem;
+  margin: 0.5rem 0 2rem;
 }
 
 form > h4 {
