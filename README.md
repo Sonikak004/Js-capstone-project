@@ -22,9 +22,9 @@
 - [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
-# 📖 [Leaderboard] <a name="about-project"></a>
+# 📖 PokeFiles <a name="about-project"></a>
 
-**Leaderboard** is an app for keeping trackof the highest scoring players of a game
+**PokeFiles** is a place for anyone to find out basic informaiton about select Pokemon.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -37,18 +37,28 @@
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS">CSS</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/javascript">JavaScript</a></li>
     <li><a href="https://webpack.js.org/">Webpack</a></li>
+    <li><a href="https://jestjs.io/docs/getting-started">Jest</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>APIs</summary>
+  <ul>
+    <li><a href="https://pokeapi.co/">PokeAPI</a></li>
+    <li><a href="https://microverse.notion.site/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a></li>
   </ul>
 </details>
 
 ### Key Features <a name="key-features"></a>
 
-- **[Uses Leaderboard API to keep track of the scores]**
+- **[Uses PokeAPI to get all the Pokemon data]**
+- **[Uses Involvement API to display and store likes and comments]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://badger-99.github.io/Leaderboard/dist/)
+- [Live Demo Link]()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -75,7 +85,7 @@ VS-Code
 
 Clone this repository to your desired folder:
 
-https://github.com/badger-99/Leaderboard.git
+https://github.com/Sonikak004/Js-capstone-project.git
 
 ### Install
 
@@ -85,11 +95,11 @@ This project doesn't need to be installed
 
 ### Usage
 
-Keep track of scores during your game night and make sure the right people win... or lose.
+REad stats about different Pokemon and leave likes and comments about any of them
 
 ### Run tests
 
-There are no tests to run.
+To run tests, run the following command: `npm test`
 
 ### Deployment
 
@@ -101,18 +111,23 @@ Or you can use the dev server. To initiate it, run `npm build run` in your cli a
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Sonika**
+
+- GitHub: [@Sonikak004](https://github.com/Sonikak004)
+- Twitter: []()
+- LinkedIn: [LinkedIn]()
+
 👤 **Alfred**
 
 - GitHub: [@badger-99](https://github.com/badger-99)
 - Twitter: [@alpeter91](https://twitter.com/alpeter9)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alpeter91-7b41a0270/
-)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/alpeter91-7b41a0270/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[Mobile deign]**
+- [ ] **[No planned future features at this point]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -120,7 +135,7 @@ Or you can use the dev server. To initiate it, run `npm build run` in your cli a
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/badger-99/Leaderboard/issues).
+Feel free to check the [issues page](https://github.com/Sonikak004/Js-capstone-project/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -132,7 +147,7 @@ If you like this project, please give it a star ⭐️
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank <a href="https://www.microverse.org/">Microverse</a> for providing the resources and guidelines that made this project possible.
+We would like to thank <a href="https://www.microverse.org/">Microverse</a> for providing the <a href="https://microverse.notion.site/Involvement-API-869e60b5ad104603aa6db59e08150270">Involvement API</a> as well as the guidelines that made this project possible. We would also like to thank the folks over at <a href="https://pokeapi.co/about">PokeAPI</a> for the hard work they put into maintaining this massivve project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
