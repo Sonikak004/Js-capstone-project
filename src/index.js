@@ -1,7 +1,7 @@
 import './styles.css';
 import template from './popupTemplate.js';
 import updateLikeCountInPopup from './updatelike.js';
-import updateButtonInnerHTML from './likecounter.js';
+import likeCounter from './likecounter.js';
 import logo from './PokeFiles-Logo.png';
 
 // HOME PAGE
@@ -33,23 +33,23 @@ function updateLikeCount(likesButtonId) {
 // Function to handle liking a Pokemon
 async function likePokemon(pokemonName, likesButtonId) {
   try {
-    if (Object.prototype.hasOwnProperty.call(likesData, pokemonName)) {
-      const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ item_id: pokemonName }),
-      });
+    const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ item_id: pokemonName }),
+    });
 
-      if (response.ok) {
-        const existingLikesCount = likesData[pokemonName] || 0;
-        const newLikesCount = existingLikesCount + 1;
-        likesData[pokemonName] = newLikesCount;
-        updateLikeCount(likesButtonId);
-        updateLikeCountInPopup(pokemonName, newLikesCount);
-        localStorage.setItem('likesData', JSON.stringify(likesData));
-      }
+    if (response.ok) {
+      const existingLikesCount = likesData[pokemonName] || 0;
+      const newLikesCount = existingLikesCount + 1;
+      likesData[pokemonName] = newLikesCount;
+      updateLikeCount(likesButtonId); // Update the like count in the UI
+      updateLikeCountInPopup(pokemonName, newLikesCount); // Update the like count in the popup
+      localStorage.setItem('likesData', JSON.stringify(likesData)); // Save the updated likes data in local storage
+      // Update the like count in the button
+      likeCounter(likesButtonId, likesData);
     }
   } catch (error) {
     // Handle errors
@@ -122,24 +122,19 @@ const renderUI = () => {
 };
 
 const fetchLikesData = async () => {
-  const storedLikesData = localStorage.getItem('likesData');
-  if (storedLikesData) {
-    likesData = JSON.parse(storedLikesData);
-    renderUI();
-  } else {
-    try {
-      const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`);
-      if (response.ok) {
-        const data = await response.json();
-        data.forEach((like) => {
-          likesData[like.item_id] = like.likes;
-        });
-        localStorage.setItem('likesData', JSON.stringify(likesData));
-        renderUI();
-      }
-    } catch (error) {
-      // Handles error
+  try {
+    const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`);
+    if (response.ok) {
+      const data = await response.json();
+      likesData = {};
+      data.forEach((like) => {
+        likesData[like.item_id] = like.likes;
+      });
+      localStorage.setItem('likesData', JSON.stringify(likesData));
+      renderUI();
     }
+  } catch (error) {
+    // Handle errors
   }
 };
 
@@ -169,37 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
       container.innerHTML = template(data, abilities, moves);
       document.body.appendChild(container);
       container.classList.remove('hidden');
-
-      // Getting comments from InvolvementAPI
-      const title = document.getElementById('comments-title');
-      const comments = document.getElementById('comments');
-      const commentsID = e.target.id.toString();
-      display(comments, commentsID, apiKey, title);
-
-      // Sending comments to InvolvementAPI
-      const form = document.getElementById('form');
-      form.addEventListener('click', async (e) => {
-        if (e.target.id === 'submit') {
-          e.preventDefault();
-          const input = document.getElementById('name');
-          const textArea = document.getElementById('comment');
-          const payload = {
-            item_id: commentsID,
-            username: input.value,
-            comment: textArea.value,
-          };
-          const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/comments`;
-          await fetch(url, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          }).then((result) => result.json());
-          display(comments, commentsID, apiKey, title);
-          form.reset();
-        }
-      });
-
-      // Close the Pop-up
       const close = document.getElementById('closePop');
       close.addEventListener('click', (e) => {
         e.preventDefault();
