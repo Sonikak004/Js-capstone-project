@@ -29,7 +29,7 @@
 
 # 📖 PokeFiles <a name="about-project"></a>
 
-**PokeFiles** is a place for anyone to find out basic informaiton about select Pokemon.
+**PokeFiles** is a place for anyone to find out basic information about selected Pokemons.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -132,7 +132,8 @@ Or you can use the dev server. To initiate it, run `npm build run` in your cli a
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **No planned future features at this point**
+- [ ] **Add a wide range of Pokemons**
+- [ ] **Create Games, Merch and Events pages**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
