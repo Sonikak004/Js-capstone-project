@@ -1,4 +1,4 @@
-function updateLikeCountInPopup(pokemonName, likeCount) {
+const updateLikeCountInPopup = (pokemonName, likeCount) => {
   const popupContainer = document.getElementById('container');
   if (popupContainer) {
     const likesCountElement = popupContainer.querySelector('#likesCount');

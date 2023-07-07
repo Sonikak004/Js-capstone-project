@@ -22,7 +22,7 @@ const getPokemonIdFromURL = (url) => {
   return parts[parts.length - 2];
 };
 
-function updateLikeCount(likesButtonId) {
+const updateLikeCount = (likesButtonId) => {
   const likesButton = document.getElementById(likesButtonId);
   if (likesButton) {
     const pokemonName = likesButton.getAttribute('id');
@@ -32,7 +32,7 @@ function updateLikeCount(likesButtonId) {
 }
 
 // Function to handle liking a Pokemon
-async function likePokemon(pokemonName, likesButtonId) {
+const likePokemon = async (pokemonName, likesButtonId) => {
   try {
     const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
       method: 'POST',

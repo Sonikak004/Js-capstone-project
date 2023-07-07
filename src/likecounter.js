@@ -1,4 +1,4 @@
-export default function likeCounter(buttonId, likesData) {
+export default (buttonId, likesData) => {
   const button = document.getElementById(buttonId);
   if (button) {
     const pokemonName = button.getAttribute('id');
@@ -7,4 +7,4 @@ export default function likeCounter(buttonId, likesData) {
     return likeCount;
   }
   return 0;
-}
+};
