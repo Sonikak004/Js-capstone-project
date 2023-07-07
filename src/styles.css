@@ -21,6 +21,7 @@ header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 1rem 2rem;
   color: aliceblue;
   background: #2c2c2c;
@@ -52,11 +53,15 @@ nav {
   width: 200px;
 }
 
-.item img {
+.item > img {
   width: 100px;
   height: 100px;
   object-fit: contain;
   margin-bottom: 10px;
+}
+
+#logo > img {
+  width: 10rem;
 }
 
 button {

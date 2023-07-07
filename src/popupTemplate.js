@@ -4,7 +4,9 @@ const template = (data, abilities, moves) => `
     <i class="fas fa-times fa-lg"></i>
   </a>
   <figure id="popPic">
-    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${data.id}.svg" alt="${data.name}">
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
+  data.id
+}.svg" alt="${data.name}">
     <figcaption><h1>${data.name}</h1></figcaption>
   </figure>
 
@@ -26,6 +28,12 @@ const template = (data, abilities, moves) => `
     <h4 id='comments-title'>Comments</h4>
     <div id="comments"></div>
   </div>
+  <form id='form'>
+    <h4>Add a comment</h4>
+    <input type="text" id="name" name='name' placeholder="Your name" required>
+    <textarea name="comment" id="comment" cols="30" rows="5" placeholder="Your insights" required></textarea>
+    <button type="submit" id='submit'>Comment</button>
+  </form>
 </div>
 `;
 
