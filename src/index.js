@@ -4,6 +4,12 @@ import updateLikeCountInPopup from './updatelike.js';
 import display from './fetchComments.js';
 import logo from './PokeFiles-Logo.png';
 
+// HOME PAGE
+const pokeLogo = new Image();
+pokeLogo.src = logo;
+pokeLogo.alt = 'logo';
+document.getElementById('logo').appendChild(pokeLogo);
+
 const itemList = document.getElementById('poke-list');
 let likesData = {};
 const itemGrid = document.createElement('div');
