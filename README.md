@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  <h2><b>PokeFiles</b></h2>
+  <h1><b>PokeFiles</b></h1>
 
 </div>
 
@@ -25,7 +25,6 @@
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
 - [🙏 Acknowledgements](#acknowledgements)
-- [❓ FAQ (OPTIONAL)](#faq)
 - [📝 License](#license)
 
 # 📖 PokeFiles <a name="about-project"></a>
