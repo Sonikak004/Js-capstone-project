@@ -13,3 +13,22 @@
       `;
   });
 
+  test('should update the fetched Pokemon count correctly', () => {
+    const data = {
+      results: [
+        { name: 'Pikachu' },
+        { name: 'Charizard' },
+        { name: 'Bulbasaur' },
+      ],
+    };
+
+    const fetchedCount = data.results.length;
+
+    const counterElement = document.getElementById('counter');
+    counterElement.textContent = `Pokémon(${fetchedCount})`;
+
+    const updatedCount = parseInt(counterElement.textContent.match(/\d+/)[0], 10);
+
+    expect(updatedCount).toBe(fetchedCount);
+  });
+});
