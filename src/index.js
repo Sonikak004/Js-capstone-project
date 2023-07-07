@@ -20,11 +20,11 @@ function updateLikeCount(likesButtonId) {
     const likeCount = likesData[pokemonName] || 0;
     likesButton.textContent = likeCount.toString();
   }
-};
+}
 
 // Function to handle liking a Pokemon
 async function likePokemon(pokemonName, likesButtonId) {
-    try {
+  try {
     if (Object.prototype.hasOwnProperty.call(likesData, pokemonName)) {
       // If the Pokemon name exists in likesData, proceed with the like operation
       const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`, {
@@ -44,16 +44,16 @@ async function likePokemon(pokemonName, likesButtonId) {
         localStorage.setItem('likesData', JSON.stringify(likesData)); // Store the updated likes data in local storage
       }
     }
-    } catch (error) {
+  } catch (error) {
     // Handle error if needed
-    }
   }
+}
 
 // Render the UI
 const renderUI = () => {
   itemGrid.innerHTML = '';
 
-fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
+  fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Failed to fetch Pokemon data');
@@ -66,30 +66,31 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
       const counterElement = document.getElementById('counter');
       counterElement.textContent = `Pokémon(${fetchedCount})`;
 
-    data.results.forEach((pokemon) => {
-      const item = document.createElement('div');
-      item.classList.add('item');
-      item.setAttribute('name', pokemon.name);
+      data.results.forEach((pokemon) => {
+        const item = document.createElement('div');
+        item.classList.add('item');
 
-      const title = document.createElement('h2');
-      title.textContent = pokemon.name;
+        const title = document.createElement('h2');
+        title.textContent = pokemon.name;
 
-      const image = document.createElement('img');
-      const pokemonId = getPokemonIdFromURL(pokemon.url);
-      image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
-      image.alt = pokemon.name;
+        const image = document.createElement('img');
+        const pokemonId = getPokemonIdFromURL(pokemon.url);
+        image.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemonId}.svg`;
+        image.alt = pokemon.name;
 
-      const buttonContainer = document.createElement('div');
-      buttonContainer.classList.add('button-container');
+        const buttonContainer = document.createElement('div');
+        buttonContainer.classList.add('button-container');
 
-      const commentsButton = document.createElement('button');
-      commentsButton.classList.add('button');
-      commentsButton.textContent = 'Comments';
-      commentsButton.classList.add('pokePop');
+        const commentsButton = document.createElement('button');
+        commentsButton.classList.add('button');
+        commentsButton.textContent = 'Comments';
+        commentsButton.setAttribute('name', pokemon.name);
+        commentsButton.setAttribute('id', `${pokemon.name}c`);
+        commentsButton.classList.add('pokePop');
 
-      const likesButton = document.createElement('button');
-      likesButton.classList.add('fas');
-      likesButton.classList.add('fa-heart');
+        const likesButton = document.createElement('button');
+        likesButton.classList.add('fas');
+        likesButton.classList.add('fa-heart');
         likesButton.setAttribute('id', pokemon.name);
 
         const likeCount = likesData[pokemon.name] || 0;
@@ -99,75 +100,77 @@ fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
           await likePokemon(pokemon.name, pokemon.name);
         });
 
-      buttonContainer.appendChild(likesButton);
-      buttonContainer.appendChild(likesCountElement);
-      buttonContainer.appendChild(commentsButton);
+        buttonContainer.appendChild(likesButton);
+        buttonContainer.appendChild(commentsButton);
 
-      item.appendChild(title);
-      item.appendChild(image);
-      item.appendChild(buttonContainer);
-      itemGrid.appendChild(item);
+        item.appendChild(title);
+        item.appendChild(image);
+        item.appendChild(buttonContainer);
+        itemGrid.appendChild(item);
+      });
+
+      itemList.appendChild(itemGrid);
+    })
+    .catch(() => {
+      // Handle error if needed
     });
+};
 
-    itemList.appendChild(itemGrid);
-    updateCounts();
-
+// Fetch likes data from local storage or API
 const fetchLikesData = async () => {
   const storedLikesData = localStorage.getItem('likesData');
   if (storedLikesData) {
     likesData = JSON.parse(storedLikesData);
     renderUI();
   } else {
-        try {
+    try {
       const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`);
       if (response.ok) {
         const data = await response.json();
         data.forEach((like) => {
           likesData[like.item_id] = like.likes;
-          });
+        });
         localStorage.setItem('likesData', JSON.stringify(likesData));
         renderUI();
       }
-        } catch (error) {
+    } catch (error) {
       // Handle error if needed
-        }
+    }
   }
 };
 
 // Fetch likes data and render the UI
 fetchLikesData();
 
-    document.addEventListener('DOMContentLoaded', () => {
-      const container = document.createElement('div');
-      container.id = 'container';
-      container.className = 'hidden';
+// POPUP
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.createElement('div');
+  container.id = 'container';
+  container.className = 'hidden';
 
-      document.addEventListener('click', async (e) => {
-        if (e.target.classList.contains('pokePop')) {
-          console.log('Clicked on the comments button');
-          const poke = e.target.parentNode.parentNode.getAttribute('name');
-          const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
-          const data = await result.json();
-          const abilities = [];
-          const moves = [];
-          for (let i = 0; i < 4; i += 1) {
-            if (data.abilities[i] !== undefined) {
-              abilities.push(data.abilities[i].ability.name);
-            }
-            if (data.moves[i] !== undefined) {
-              moves.push(data.moves[i].move.name);
-            }
-          }
-          const likesCount = likesCountMap[poke] || 0;
-          container.innerHTML = template(data, abilities, moves, likesCount);
-          document.body.appendChild(container);
-          container.classList.remove('hidden');
-          const close = document.getElementById('closePop');
-          close.addEventListener('click', (e) => {
-            e.preventDefault();
-            container.classList.add('hidden');
-          });
+  document.querySelector('main').addEventListener('click', async (e) => {
+    if (e.target.classList.contains('pokePop')) {
+      const poke = e.target.name;
+      const result = await fetch(`https://pokeapi.co/api/v2/pokemon/${poke}`);
+      const data = await result.json();
+      const abilities = [];
+      const moves = [];
+      for (let i = 0; i < 4; i += 1) {
+        if (data.abilities[i] !== undefined) {
+          abilities.push(data.abilities[i].ability.name);
         }
+        if (data.moves[i] !== undefined) {
+          moves.push(data.moves[i].move.name);
+        }
+      }
+      container.innerHTML = template(data, abilities, moves);
+      document.body.appendChild(container);
+      container.classList.remove('hidden');
+      const close = document.getElementById('closePop');
+      close.addEventListener('click', (e) => {
+        e.preventDefault();
+        container.classList.add('hidden');
       });
-    });
+    }
   });
+});
