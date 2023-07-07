@@ -1,5 +1,6 @@
 import './styles.css';
 import template from './popupTemplate.js';
+import updateLikeCountInPopup from './updatelike.js';
 
 const itemList = document.getElementById('poke-list');
 const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
