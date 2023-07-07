@@ -198,12 +198,12 @@ footer {
 }
 
 #popup {
-  margin: 0 auto;
+  margin: 1rem auto 0;
   padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 40%;
+  width: 446px;
   background-color: white;
 }
 
