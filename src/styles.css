@@ -129,6 +129,14 @@ button {
   transform: translate(-4px,-4px);
 }
 
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 178px;
+  height: 53px;
+  align-items: center;
+  justify-content: space-between;
+}
 #poke-list {
   display: flex;
   flex-wrap: wrap;
