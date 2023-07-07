@@ -1,3 +1,9 @@
+/* Importing downloaded font */
+@font-face {
+  font-family: 'MyFont', sans-serif;
+  src: url('./my-font.ttf') format('ttf');
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,6 +12,7 @@
 
 body {
   height: 100%;
+  font-family: 'MyFont', sans-serif;
 }
 
 a {
