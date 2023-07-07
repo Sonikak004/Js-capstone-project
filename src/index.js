@@ -13,19 +13,12 @@ const getPokemonIdFromURL = (url) => {
   return parts[parts.length - 2];
 };
 
-const fetchAllLikesCount = async () => {
-  try {
-    const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiKey}/likes`);
-    const data = await response.json();
-    const likesCountMap = {};
-    data.forEach((like) => {
-      const { itemId, likes } = like;
-      likesCountMap[itemId] = likes.length;
-    });
-    return likesCountMap;
-  } catch (error) {
-    console.log('Error fetching likes count:', error);
-    return {};
+function updateLikeCount(likesButtonId) {
+  const likesButton = document.getElementById(likesButtonId);
+  if (likesButton) {
+    const pokemonName = likesButton.getAttribute('id');
+    const likeCount = likesData[pokemonName] || 0;
+    likesButton.textContent = likeCount.toString();
   }
 };
 
