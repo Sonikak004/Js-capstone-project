@@ -3,6 +3,9 @@ import template from './popupTemplate.js';
 import updateLikeCountInPopup from './updatelike.js';
 
 const itemList = document.getElementById('poke-list');
+let likesData = {};
+const itemGrid = document.createElement('div');
+itemGrid.classList.add('poke-grid');
 const apiKey = 'hY8Nz1dVpsdglVg97VQ1';
 
 const getPokemonIdFromURL = (url) => {
