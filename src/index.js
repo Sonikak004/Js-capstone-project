@@ -60,7 +60,7 @@ async function likePokemon(pokemonName, likesButtonId) {
 const renderUI = () => {
   itemGrid.innerHTML = '';
 
-  fetch('https://pokeapi.co/api/v2/pokemon?offset=3&limit=6')
+  fetch('https://pokeapi.co/api/v2/pokemon?limit=40')
     .then((response) => {
       if (!response.ok) {
         throw new Error('Failed to fetch Pokemon data');
