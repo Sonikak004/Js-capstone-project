@@ -41,6 +41,10 @@
     "resetMocks": false,
     "setupFiles": [
       "jest-localstorage-mock"
+    ],
+    "transformIgnorePatterns": [
+      "/node_modules/",
+      "\\.css$"
     ]
   }
 }
