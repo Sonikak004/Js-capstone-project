@@ -1,7 +1,7 @@
 import './styles.css';
 import template from './popupTemplate.js';
 import updateLikeCountInPopup from './updatelike.js';
-import display from './fetchComments.js';
+import updateButtonInnerHTML from './likecounter.js';
 import logo from './PokeFiles-Logo.png';
 
 // HOME PAGE
