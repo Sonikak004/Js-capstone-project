@@ -85,7 +85,6 @@ button {
   color: #feca1b;
   top: 2px;
   letter-spacing: 2px;
-  right: 14px;
   position: relative;
   width: 25px;
   background: none;
@@ -124,6 +123,15 @@ button {
 .button-hov:hover {
   box-shadow: 4px 4px 0 #2c2c2c;
   transform: translate(-4px,-4px);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 178px;
+  height: 53px;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #poke-list {
