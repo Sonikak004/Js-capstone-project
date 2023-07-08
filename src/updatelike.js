@@ -6,6 +6,6 @@ const updateLikeCountInPopup = (pokemonName, likeCount) => {
       likesCountElement.textContent = likeCount.toString();
     }
   }
-}
+};
 
 export default { updateLikeCountInPopup };

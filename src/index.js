@@ -29,7 +29,7 @@ const updateLikeCount = (likesButtonId) => {
     const likeCount = likesData[pokemonName] || 0;
     likesButton.textContent = likeCount.toString();
   }
-}
+};
 
 // Function to handle liking a Pokemon
 const likePokemon = async (pokemonName, likesButtonId) => {
@@ -55,7 +55,7 @@ const likePokemon = async (pokemonName, likesButtonId) => {
   } catch (error) {
     // Handle errors
   }
-}
+};
 
 const renderUI = () => {
   itemGrid.innerHTML = '';

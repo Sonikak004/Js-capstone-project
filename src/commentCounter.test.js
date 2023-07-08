@@ -16,6 +16,4 @@ describe('testing the comment counting function', () => {
     const container = document.createElement('div');
     expect(counter(container)).toBe(0);
   });
-
-
 });
