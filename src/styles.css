@@ -1,0 +1,294 @@
+/* Importing downloaded font */
+@font-face {
+  font-family: 'MyFont', sans-serif;
+  src: url('./my-font.ttf') format('ttf');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  font-family: 'MyFont', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+span {
+  position: relative;
+  right: 5px;
+}
+
+header {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: aliceblue;
+  background: #2c2c2c;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+  color: #feca1b;
+}
+
+/* main */
+
+.poke-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.item {
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+}
+
+.item > img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+#logo > img {
+  width: 10rem;
+}
+
+button {
+  border: none;
+  color: #2c2c2c;
+}
+
+.button {
+  border: 1px solid #2c2c2c;
+  margin-left: 3px;
+  margin-right: 3px;
+  height: 25px;
+  width: 90px;
+}
+
+.fas {
+  font-size: 17px;
+  height: 22px;
+  color: #feca1b;
+  top: 2px;
+  letter-spacing: 2px;
+  position: relative;
+  width: 25px;
+  background: none;
+}
+
+.fas:hover {
+  color: #028df0;
+}
+
+.button-hov {
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background: 0 0;
+  border: 1px solid #2c2c2c;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all 0.14s ease-out;
+  white-space: nowrap;
+}
+
+.button-hov:focus-visible {
+  outline-offset: 1px;
+}
+
+.button-hov:hover {
+  box-shadow: 4px 4px 0 #2c2c2c;
+  transform: translate(-4px, -4px);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  width: 178px;
+  height: 53px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#poke-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  padding: 35px 0;
+}
+
+.pokes:hover {
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* footer  */
+
+footer {
+  width: 100%;
+  height: 70px;
+  right: 0;
+  background-color: #2c2c2c;
+}
+
+.footer-p {
+  color: rgb(255, 255, 255);
+}
+
+.ftxt {
+  color: #feca1b;
+  text-decoration: none;
+}
+
+.ftxt:hover {
+  color: rgb(2, 141, 240);
+  text-decoration: none;
+}
+
+.footer-d {
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Popup-Styling */
+.hidden {
+  display: none;
+}
+
+#container {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgb(0, 6, 30, 0.8);
+  overflow-y: auto;
+  height: 100%;
+}
+
+#popup {
+  margin: 1rem auto 0;
+  padding: 0.5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 446px;
+  background-color: white;
+}
+
+#closePop {
+  align-self: flex-end;
+}
+
+#popPic,
+figcaption {
+  margin: 0 auto;
+  text-align: center;
+  width: 100%;
+}
+
+#popPic {
+  background: #000045;
+}
+
+#caption > h1 {
+  color: #f83636;
+}
+
+#popPic > img {
+  width: 15rem;
+}
+
+.details {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 8rem 8rem;
+  text-align: center;
+  gap: 1rem 7rem;
+}
+
+.stats > ul {
+  margin: 0;
+  padding: 0 0.1rem 0 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+li {
+  list-style: none;
+}
+
+.comment-section {
+  margin-top: 1rem;
+  text-align: center;
+  width: 20rem;
+}
+
+#comments {
+  margin-top: 0;
+  padding: 0 0.5rem 0.5rem;
+  line-height: 1.3rem;
+  max-height: 5.64rem;
+  overflow: auto;
+  text-align: left;
+}
+
+form {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  text-align: center;
+  margin: 0.5rem 0 2rem;
+}
+
+form > h4 {
+  align-self: center;
+  margin: 0;
+}
+
+#submit {
+  background: #f83636;
+  color: #fff;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+#submit:hover {
+  cursor: pointer;
+  background: #feca1b;
+  color: #000045;
+}
